@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 
     <head>
@@ -16,7 +17,6 @@ and open the template in the editor.
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <title>Kiwools</title>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
@@ -27,7 +27,8 @@ and open the template in the editor.
             <div class="container">
 
                 <div class="row">
-                    <% for (int i = 0; i < 10; i++) { %>
+                    <% int length = 10; %>
+                    <% for (int i = 0; i < length; i++) { %>
                     <div class="col-md-4">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top" style="width: 100%; height: 225px; display: block;"
@@ -54,7 +55,7 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-                
+
         <%@ include file="footer.html" %>
     </body>
 
