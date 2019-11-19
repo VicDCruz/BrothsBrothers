@@ -48,7 +48,7 @@ and open the template in the editor.
             </div>
         </div>
     </div>
-    <%@ include file="header.html" %>
+    <%@ include file="footer.html" %>
 </body>
 
 </html>
