@@ -1,5 +1,9 @@
 package kiwools;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * ClsGestorTienda.java
  */
@@ -13,13 +17,13 @@ public class ClsGestorTienda {
 // ---------------------------------------------------------------------------    
 
     public ClsGestorTienda() {
-        conexion = new ClsConexion("EscDeBaile");
+        conexion = new ClsConexion("Store");
     }
 // ---------------------------------------------------------------------------        
 
-    public boolean conectaBD(String strUsuario, String strContrasenha) {
+    /*public boolean conectaBD(String strUsuario, String strContrasenha) {
         return conexion.conectate(strUsuario, strContrasenha);
-    }
+    }*/
 // ---------------------------------------------------------------------------        
 
     public boolean conectado() {
@@ -162,5 +166,14 @@ public class ClsGestorTienda {
 // ---------------------------------------------------------------------------    
 // ---------------------------------------------------------------------------    
 // ---------------------------------------------------------------------------    
+    
+    public int loginUsuario(String email, String pass) {
+        return conexion.conectate(email, pass);
+    }
+    
+    public java.sql.ResultSet obtenDatosUsuario(int id) {
+        System.out.println(conexion.impRS(conexion.obtenRegSelect("select * from User where id=" + id)));
+        return conexion.obtenRegSelect("select * from User where id=" + id);
+    }
 
 }

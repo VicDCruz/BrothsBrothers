@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
 
 <head>
@@ -29,6 +23,12 @@ and open the template in the editor.
                     <h2>Inicia sesión</h2>
                     <br>
                     <form action="checkuser.jsp" method="post">
+                        <%
+                            if (session.getAttribute("error") != null) {
+                                out.print("<h6>Correo electrónico o contraseña incorrectos</h6>");
+                                session.removeAttribute("error");
+                            }
+                        %>
                         <label for="inputEmail" class="sr-only">Email address</label>
                         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required=""
                             autofocus=""
