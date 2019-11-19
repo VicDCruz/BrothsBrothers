@@ -62,6 +62,7 @@
                             request.getRequestDispatcher("index.jsp").forward(request, response);
                         }
                         java.sql.ResultSet info = gestor.obtenDatosUsuario(Integer.parseInt(session.getAttribute("id").toString()));
+                        info.next();
                     %>
                     <div class="border-bottom">
                         <h2>Datos personales</h2>
@@ -75,11 +76,11 @@
                                 </tr>
                                 <tr>
                                     <td>Alias</td>
-                                    <td>Lorem</td>
+                                    <td><%out.print(info.getString("alias"));%></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td>Lorem</td>
+                                    <td><%out.print(info.getString("email"));%></td>
                                 </tr>
                             </tbody>
                         </table>
