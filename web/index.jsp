@@ -21,20 +21,8 @@ and open the template in the editor.
 </head>
 
 <body>
-    <nav class="site-header sticky-top py-1 bg-light">
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block" href="/Kiwools">Kiwools</a>
-            <a class="py-2 d-none d-md-inline-block" href="catalog.jsp">Catálogo</a>
-            <a class="py-2 d-none d-md-inline-block" href="recipes.jsp">Recetas</a>
-            <a class="py-2 d-none d-md-inline-block" href="cart.jsp">Carrito</a>
-            <a class="py-2 d-none d-md-inline-block" href="login.html">Iniciar sesión</a>
-            <form class="form-inline my-2 my-lg-0" action="/search.jsp">
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos"
-                    aria-label="Buscar productos" name="words">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-            </form>
-        </div>
-    </nav>
+    <%@ include file="header.html" %>
+    
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
             <h1 class="display-4 font-weight-normal">Cubos de kiwools</h1>
@@ -60,35 +48,7 @@ and open the template in the editor.
             </div>
         </div>
     </div>
-    <footer class="container py-5">
-        <div class="row">
-          <div class="col-12 col-md">
-            Kiwools
-            <small class="d-block mb-3 text-muted">2019</small>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Cool stuff</a></li>
-              <li><a class="text-muted" href="#">Random feature</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Resource</a></li>
-              <li><a class="text-muted" href="#">Resource name</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Team</a></li>
-              <li><a class="text-muted" href="#">Locations</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+    <%@ include file="header.html" %>
 </body>
 
 </html>
