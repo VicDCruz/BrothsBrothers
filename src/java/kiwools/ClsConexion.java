@@ -33,7 +33,7 @@ public class ClsConexion {
 
     public boolean conectate(String unUID, String unPwd) {
         strUID = unUID;
-        String strSel = "Select contrasenha from tblUsuarios where clvUsuario = '"
+        String strSel = "Select password from User where email = '"
                 + unUID + "'";
         boolean res = false;
 
@@ -53,7 +53,7 @@ public class ClsConexion {
             // Parametrizar la ruta por medio de propiedades obtenidas desde un archivo o en la
             // línea de comandos de ejecución del jar
             //
-            con = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/hca/Documents/EscBaileWeb/" + this.strNomDB);
+            con = DriverManager.getConnection("jdbc:ucanaccess://./" + this.strNomDB);
             //con = DriverManager.getConnection("jdbc:ucanaccess://"+ this.strNomDB); 
 
             // Si todo va bien, verifica el unID y unPwd
@@ -129,7 +129,7 @@ public class ClsConexion {
 // ---------------------------------------------------------------------------    
 
     public String impRS(java.sql.ResultSet rs) {
-        String strRes = "";
+        String strRes = "# ";
         java.sql.ResultSetMetaData rsmd = null;
         int n, nCol, i;
         try {
@@ -356,19 +356,20 @@ public class ClsConexion {
 
     public static void main(String[] args) {
         //System.out.println("Hola...");
-        int intPrueba[] = {1, 5, 4, 6, 2, 7, 2};
-        int i, n = 7;
+        // int intPrueba[] = {1, 5, 4, 6, 2, 7, 2};
+        int intPrueba[] = {1, 2, 3, 4, 5};
+        int i, n = intPrueba.length;
         ResultSet r = null;
         java.util.TreeMap<String, ClsCampoBD> colCampos = null;
 
         try {
-            ClsConexion c = new ClsConexion("EscDeBaile");
-            c.conectate("rafa", "rafa");
+            ClsConexion c = new ClsConexion("Store");
+            c.conectate("vicdan1@live.com.mx", "victor");
             if (c.conectado()) {
                 for (i = 0; i < n; i++) {
                     switch (intPrueba[i]) {
                         case 1:
-                            r = c.obtenRS("tblAlumnos");
+                            r = c.obtenRS("User");
                             if (r != null) {
                                 System.out.println(c.impRS(r));
                             } else {
@@ -377,36 +378,38 @@ public class ClsConexion {
                             }
                             break;
                         case 2:
-                            r = c.obtenRS("tblAlumnos");
+                            r = c.obtenRS("PaymentMethod");
                             colCampos = c.obtenMapaCampos(r);
-                            r = c.obtenRS("tblAlumnos", colCampos);
+                            r = c.obtenRS("PaymentMethod", colCampos);
                             System.out.println(c.impRS(r));
                             break;
                         case 3:
-                            r = c.obtenRS("tblAlumnos");
+                            r = c.obtenRS("User");
                             colCampos = c.obtenMapaCampos(r);
                             colCampos.put("*", new ClsCampoBD("*", "", "", ""));
-                            r = c.obtenRS("tblAlumnos", colCampos);
+                            r = c.obtenRS("User", colCampos);
                             System.out.println(c.impRS(r));
                             break;
                         case 4:
                             colCampos = new TreeMap<String, ClsCampoBD>();
-                            colCampos.put("2_apPaterno",
-                                    new ClsCampoBD("apPaterno", "", ClsCampoBD.TIPO_VARCHAR, ""));
-                            colCampos.put("1_clvAlumno", new ClsCampoBD("clvAlumno", "", "", ""));
-                            r = c.obtenRS("tblAlumnos", colCampos);
+                            colCampos.put("1email",
+                                    new ClsCampoBD("email", "", ClsCampoBD.TIPO_VARCHAR, ""));
+                            colCampos.put("2username", new ClsCampoBD("username", "", "", ""));
+                            r = c.obtenRS("User", colCampos);
                             System.out.println(c.impRS(r));
                             break;
                         case 5:
                             colCampos = new TreeMap<String, ClsCampoBD>();
-                            colCampos.put("apPaterno",
-                                    new ClsCampoBD("apPaterno", "apPaternoNo. " + i, ClsCampoBD.TIPO_VARCHAR, ""));
-                            colCampos.put("apMaterno",
-                                    new ClsCampoBD("apMaterno", "apMaternoNo. " + i, ClsCampoBD.TIPO_VARCHAR, ""));
-                            colCampos.put("nombre",
-                                    new ClsCampoBD("nombre", "Número " + i, ClsCampoBD.TIPO_VARCHAR, ""));
-                            colCampos.put("clvAlumno", new ClsCampoBD("clvAlumno", "1000" + i, ClsCampoBD.TIPO_VARCHAR, ""));
-                            c.insertaReg("tblAlumnos", colCampos);
+//                            colCampos.put("id",
+//                                    new ClsCampoBD("id", "4", ClsCampoBD.TIPO_INTEGER, ""));
+                            colCampos.put("email",
+                                    new ClsCampoBD("email", "angel@itam.mx", ClsCampoBD.TIPO_VARCHAR, ""));
+                            colCampos.put("username",
+                                    new ClsCampoBD("username", "aangles", ClsCampoBD.TIPO_VARCHAR, ""));
+                            colCampos.put("alias",
+                                    new ClsCampoBD("alias", "angle", ClsCampoBD.TIPO_VARCHAR, ""));
+                            colCampos.put("password", new ClsCampoBD("password", "angel" + i, ClsCampoBD.TIPO_VARCHAR, ""));
+                            c.insertaReg("UserEj", colCampos);
                             //System.out.println(c.impRS(r));
                             break;
                         case 6:
