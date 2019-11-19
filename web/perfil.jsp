@@ -58,16 +58,17 @@
                     <%
                         ClsGestorTienda gestor = ((ClsGestorTienda) session.getAttribute("miGestor"));
                         if (gestor == null) {
-                            session.invalidate();
                             request.getRequestDispatcher("index.jsp").forward(request, response);
                         }
-                        java.sql.ResultSet info = gestor.obtenDatosUsuario(Integer.parseInt(session.getAttribute("id").toString()));
-                        info.next();
                     %>
                     <div class="border-bottom">
                         <h2>Datos personales</h2>
                     </div>
                     <div class="table-responsive">
+                        <%
+                            java.sql.ResultSet info = gestor.obtenDatosUsuario(Integer.parseInt(session.getAttribute("id").toString()));
+                            info.next();
+                        %>
                         <table class="table table-sm table-borderless table-hover">
                             <tbody>
                                 <tr>
@@ -88,24 +89,26 @@
                     <div class="border-bottom">
                         <h2>Direcciones de envío</h2>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table table-sm table-borderless table-hover">
-                            <tbody>
-                                <tr>
-                                    <td>Nombre</td>
-                                    <td>Lorem</td>
-                                </tr>
-                                <tr>
-                                    <td>Alias</td>
-                                    <td>Lorem</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>Lorem</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        <%
+                            java.sql.ResultSet dirs = gestor.obtenDireccionesUsuario(Integer.parseInt(session.getAttribute("id").toString()));
+                            while (dirs.next()) {
+                                out.println("<div class='table-responsive'>");
+                                out.println("<h4>Dirección " + dirs.getString("id") + "</h4>");
+                                out.println("<table class='table table-sm table-borderless table-hover'>");
+                                out.println("<tbody>");
+                                out.println("<tr><td>Dirección</td>");
+                                out.println("<td>" + dirs.getString("address") + "</td></tr>");
+                                out.println("<tr><td>Ciudad</td>");
+                                out.println("<td>" + dirs.getString("city") + "</td></tr>");
+                                out.println("<tr><td>Código postal</td>");
+                                out.println("<td>" + dirs.getString("zipCode") + "</td></tr>");
+                                out.println("<tr><td>País</td>");
+                                out.println("<td>" + dirs.getString("country") + "</td></tr>");
+                                out.println("</tbody>");
+                                out.println("</table");
+                                out.println("</div>");
+                            }
+                        %>
                     <div class="border-bottom">
                         <h2>Métodos de pago</h2>
                     </div>

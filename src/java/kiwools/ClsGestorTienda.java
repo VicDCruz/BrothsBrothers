@@ -172,8 +172,15 @@ public class ClsGestorTienda {
     }
     
     public java.sql.ResultSet obtenDatosUsuario(int id) {
-        System.out.println(conexion.impRS(conexion.obtenRegSelect("select * from User where id=" + id)));
         return conexion.obtenRegSelect("select * from User where id=" + id);
+    }
+    
+    public java.sql.ResultSet obtenDireccionesUsuario(int id) {
+        return conexion.obtenRegSelect("select * from ShippingAddress where userId=" + id);
+    }
+    
+    public java.sql.ResultSet obtenMetodosPagoUsuario(int id) {
+        return null;
     }
 
 }
