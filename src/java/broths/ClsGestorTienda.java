@@ -12,8 +12,8 @@ public class ClsGestorTienda {
     ClsConexion conexion;
 // ---------------------------------------------------------------------------    
 
-    public ClsGestorTienda() {
-        conexion = new ClsConexion("EscDeBaile");
+     public ClsGestorTienda() {
+        conexion = new ClsConexion("Store");
     }
 // ---------------------------------------------------------------------------        
 
@@ -163,12 +163,12 @@ public class ClsGestorTienda {
 // ---------------------------------------------------------------------------    
 // ---------------------------------------------------------------------------    
 
-     public java.sql.ResultSet obtenCatalogo() {
-        return conexion.obtenRS("Recipes");
+     public java.sql.ResultSet obtenRecetas(String categoria) {
+        return conexion.obtenRegSelect("Select * from Recipes where tipo='" + categoria + "'");
     }
      
      
-     public boolean conectaBD() {
+    public boolean conectaBD() {
         return conexion.conectate("demo", "demo");
     }
 }
