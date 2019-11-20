@@ -41,7 +41,7 @@ and open the template in the editor.
                                  data-holder-rendered="true">
                             <div class="card-body">
                                 <h5 class="card-title">Pollo</h5>
-                                <p class="card-text">En está sección encontrarás todas las recetas con para pollo.</p>
+                                <p class="card-text">En está sección encontrarás todas las recetas para pollo.</p>
                                 <button type="button" class="btn btn-outline-success" id="p">Ver recetas</button>
                                 <script type="text/javascript">
                                 document.getElementById("p").onclick = function () {
@@ -60,7 +60,7 @@ and open the template in the editor.
                                  data-holder-rendered="true">
                             <div class="card-body">
                                 <h5 class="card-title">Res</h5>
-                                <p class="card-text">En está sección encontrarás todas las recetas con para res.</p>
+                                <p class="card-text">En está sección encontrarás todas las recetas para res.</p>
                                 <button type="button" class="btn btn-outline-success" id="r">Ver recetas</button>
                                 <script type="text/javascript">
                                 document.getElementById("r").onclick = function () {
@@ -79,7 +79,7 @@ and open the template in the editor.
                                  data-holder-rendered="true">
                             <div class="card-body">
                                 <h5 class="card-title">Pescado</h5>
-                                <p class="card-text">En está sección encontrarás todas las recetas con para pescado.</p>
+                                <p class="card-text">En está sección encontrarás todas las recetas para pescado.</p>
                                 <button type="button" class="btn btn-outline-success" id="pe">Ver más</button>
                                 <script type="text/javascript">
                                 document.getElementById("pe").onclick = function () {
