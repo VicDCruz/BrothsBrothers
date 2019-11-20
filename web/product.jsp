@@ -28,8 +28,9 @@ and open the template in the editor.
             <div class="container">
 
                 <div class="row">
-                    <%                        ClsGestorTienda gestor = new ClsGestorTienda();
-                        gestor.conectaBD("vicdan1@live.com.mx", "victor");
+                    <%  
+                        ClsGestorTienda gestor = new ClsGestorTienda();
+                        gestor.conectaBD();
                         broths.MiModelo mm = gestor.obtenProducto(request.getParameter("id"));
                         try {
                             gestor.desconecta();

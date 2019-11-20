@@ -191,4 +191,8 @@ public class ClsGestorTienda {
         return elModelo;
     }
     
+    public boolean conectaBD() {
+        return conexion.conectate("demo", "demo");
+    }
+    
 }

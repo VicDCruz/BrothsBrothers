@@ -40,7 +40,7 @@ and open the template in the editor.
                 <div class="row">
                     <%
                         ClsGestorTienda gestor = new ClsGestorTienda();
-                        gestor.conectaBD("vicdan1@live.com.mx", "victor");
+                        gestor.conectaBD();
                         java.sql.ResultSet r;
                         String words = request.getParameter("words");
                         
