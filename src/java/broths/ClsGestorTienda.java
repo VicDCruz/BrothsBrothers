@@ -1,4 +1,4 @@
-package kiwools;
+package broths;
 
 /*
  * ClsGestorTienda.java
@@ -13,7 +13,7 @@ public class ClsGestorTienda {
 // ---------------------------------------------------------------------------    
 
     public ClsGestorTienda() {
-        conexion = new ClsConexion("EscDeBaile");
+        conexion = new ClsConexion("Store");
     }
 // ---------------------------------------------------------------------------        
 
@@ -163,4 +163,8 @@ public class ClsGestorTienda {
 // ---------------------------------------------------------------------------    
 // ---------------------------------------------------------------------------    
 
+    public java.sql.ResultSet obtenCatalogo() {
+        return conexion.obtenRS("Catalog");
+    }
+    
 }

@@ -1,4 +1,4 @@
-package kiwools;
+package broths;
 
 import java.sql.*;
 import java.util.*;
@@ -53,7 +53,7 @@ public class ClsConexion {
             // Parametrizar la ruta por medio de propiedades obtenidas desde un archivo o en la
             // línea de comandos de ejecución del jar
             //
-            con = DriverManager.getConnection("jdbc:ucanaccess://./" + this.strNomDB);
+            con = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/vicda/Documents/Kiwools/" + this.strNomDB);
             //con = DriverManager.getConnection("jdbc:ucanaccess://"+ this.strNomDB); 
 
             // Si todo va bien, verifica el unID y unPwd
