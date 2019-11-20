@@ -163,4 +163,12 @@ public class ClsGestorTienda {
 // ---------------------------------------------------------------------------    
 // ---------------------------------------------------------------------------    
 
+     public java.sql.ResultSet obtenCatalogo() {
+        return conexion.obtenRS("Recipes");
+    }
+     
+     
+     public boolean conectaBD() {
+        return conexion.conectate("demo", "demo");
+    }
 }
