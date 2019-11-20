@@ -4,7 +4,7 @@
     Author     : PetiteAmandine
 --%>
 
-<%@page import="kiwools.ClsGestorTienda"%>
+<%@page import="broths.ClsGestorTienda"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
