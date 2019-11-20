@@ -1,5 +1,9 @@
 package broths;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * ClsGestorTienda.java
  */
@@ -13,7 +17,7 @@ public class ClsGestorTienda {
 // ---------------------------------------------------------------------------    
 
     public ClsGestorTienda() {
-        conexion = new ClsConexion("EscDeBaile");
+        conexion = new ClsConexion("Store");
     }
 // ---------------------------------------------------------------------------        
 
@@ -162,5 +166,20 @@ public class ClsGestorTienda {
 // ---------------------------------------------------------------------------    
 // ---------------------------------------------------------------------------    
 // ---------------------------------------------------------------------------    
+
+    public int cuentaUsuarios() {
+        java.sql.ResultSet rs = conexion.obtenRegSelect("Select COUNT(*) as total from User");
+        MiModelo elModelo = new MiModelo(rs);
+        try {
+            rs.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return Integer.parseInt((String) elModelo.getValueAt(0, 0));
+    }
+
+    public boolean conectaBD() {
+        return conexion.conectate("demo", "demo");
+    }
 
 }

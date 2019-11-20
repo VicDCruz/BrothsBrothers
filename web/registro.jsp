@@ -27,34 +27,38 @@ and open the template in the editor.
             <div class="container">
                 <div class="form-row">
                     <div class="col-md-4 mx-auto">
-                         <input type="hidden" id="custId" name="custId" value="4">
-                        <br><br> <label for="mail">Correo Electronico</label>
-                        <input type="email" class="form-control" id="mail" placeholder="Correo Electronico" required>
+                        <br><br> 
+                        <label for="email">Correo Electronico</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electronico" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-md-4 mx-auto">
-                        <br><label for="pass">Contraseña</label>
-                        <input type="password" class="form-control" id="pass" placeholder="Contraseña"required>
+                        <br>
+                        <label for="password">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña"required>
                     </div>
                 </div>
-                 <div class="form-row">
-                <div class="col-md-4 mx-auto">
-                    <br><label for="nomb">Nombre</label>
-                    <input type="text" class="form-control" id="nomb" placeholder="" required>
-                </div>
-                 </div>
                 <div class="form-row">
-                <div class="col-md-4 mx-auto">
-                    <br><label for="ali">Alias</label>
-                    <input type="text" class="form-control" id="ali" placeholder="" required>
-                </div>
+                    <div class="col-md-4 mx-auto">
+                        <br>
+                        <label for="name">Nombre</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="" required>
                     </div>
+                </div>
                 <div class="form-row">
-                <div class="col-md-4 mx-auto">
-                    <br><br> <button type="submit" class="btn btn-primary">Registrar</button>
-                </div>
+                    <div class="col-md-4 mx-auto">
+                        <br>
+                        <label for="alias">Alias</label>
+                        <input type="text" class="form-control" id="alias" name="alias" placeholder="" required>
                     </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-4 mx-auto">
+                        <br><br>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </div>
+                </div>
             </div>
 
         </form>
