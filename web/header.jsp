@@ -11,7 +11,16 @@ and open the template in the editor.
         <a class="py-2 d-none d-md-inline-block" href="catalog.jsp">Catálogo</a>
         <a class="py-2 d-none d-md-inline-block" href="recipes.jsp">Recetas</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.jsp">Carrito</a>
+        <%
+        if (session.getAttribute("id") == null) {
+        %>
         <a class="py-2 d-none d-md-inline-block" href="login.jsp">Iniciar sesión</a>
+        <%
+        } else {
+        %>
+        <a class="py-2 d-none d-md-inline-block" href="perfil.jsp">Mi perfil</a>
+        <a class="py-2 d-none d-md-inline-block" href="logout.jsp">Cerrar sesión</a>
+        <%}%>
         <form class="form-inline my-2 my-lg-0" action="search.jsp">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos"
                    aria-label="Buscar productos" name="words">
