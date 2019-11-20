@@ -55,13 +55,14 @@
                     </div>
                 </nav>
                 
-                <main role="main" class="col-md-9 px-4">
+                <main role="main" class="col-md-8 px-4">
                     <%
                         ClsGestorTienda gestor = ((ClsGestorTienda) session.getAttribute("miGestor"));
                         if (gestor == null) {
                             request.getRequestDispatcher("index.jsp").forward(request, response);
                         }
                     %>
+                    <br>
                     <div class="border-bottom">
                         <h2>Datos personales</h2>
                     </div>
@@ -88,6 +89,7 @@
                         </table>
                         <button type="button" class="btn btn-sm btn-secondary float-right">Editar</button>
                     </div>
+                                
                     <div class="border-bottom">
                         <h2>Direcciones de envío</h2>
                     </div>
@@ -109,16 +111,18 @@
                             out.println("<td>" + dirs.getString("country") + "</td></tr>");
                             out.println("</tbody>");
                             out.println("</table");
-                            out.println("<div class='btn-toolbar mb-2 mb-md-0'>");
+                            out.println("</div>");
+                            out.println("<div class='btn-toolbar mb-2 mb-md-0' float-right>");
                             out.println("<div class='btn-group-vertical mr-2 float-right'>");
                             out.println("<button type='button' class='btn btn-sm btn-secondary'>Editar</button>");
                             out.println("<button type='button' class='btn btn-sm btn-danger'>Eliminar</button>");
                             out.println("</div>");
                             out.println("</div>");
-                            out.println("</div>");
+                            //out.println("</div>");
                             i++;
                         }
                     %>
+                    
                     <div class="border-bottom">
                         <h2>Métodos de pago</h2>
                     </div>
@@ -136,6 +140,7 @@
                             out.println("<td>" + pagos.getString("description") + "</td></tr>");
                             out.println("</tbody>");
                             out.println("</table");
+                            //out.println("</div>");
                             out.println("<div class='btn-toolbar mb-2 mb-md-0'>");
                             out.println("<div class='btn-group-vertical mr-2 float-right'>");
                             out.println("<button type='button' class='btn btn-sm btn-secondary'>Editar</button>");
@@ -145,7 +150,7 @@
                             out.println("</div>");
                             i++;
                         }
-                    %>
+                    %> 
                 </main>
             </div>
         </div>
