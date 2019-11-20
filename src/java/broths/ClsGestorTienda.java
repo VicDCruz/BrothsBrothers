@@ -37,15 +37,15 @@ public class ClsGestorTienda {
     }
 // ---------------------------------------------------------------------------
 
-    public MiModelo obtenModeloAlumno(String clvAlumno) {
-        java.sql.ResultSet rs = conexion.obtenRegSelect("Select * from tblAlumnos where clvAlumno='" + clvAlumno + "'");
+    public MiModelo obtenModeloUsuario(String clvAlumno) {
+        java.sql.ResultSet rs = conexion.obtenRegSelect("Select * from User where id='" + clvAlumno + "'");
         MiModelo elModelo = new MiModelo(rs);
         return elModelo;
     }
 // ---------------------------------------------------------------------------
 
-    public MiModelo obtenModeloAlumnos() {
-        java.sql.ResultSet rs = conexion.obtenRegSelect("Select * from tblAlumnos");
+    public MiModelo obtenModeloUsuarios() {
+        java.sql.ResultSet rs = conexion.obtenRegSelect("Select * from User");
         MiModelo elModelo = new MiModelo(rs);
         return elModelo;
     }
@@ -87,11 +87,11 @@ public class ClsGestorTienda {
 //                            Altas de registros 
 // ---------------------------------------------------------------------------
 
-    public boolean altaAlumno(String arr_nomCampos[], String arr_datos[]) {
+    public boolean altaUsuario(String arr_nomCampos[], String arr_datos[]) {
         int i, n;
 
         // se obtiene la colección de campos de la tabla de los alumnos
-        java.util.TreeMap<String, ClsCampoBD> colCampos = conexion.obtenMapaCampos(conexion.obtenRS("tblAlumnos"));
+        java.util.TreeMap<String, ClsCampoBD> colCampos = conexion.obtenMapaCampos(conexion.obtenRS("User"));
 
         n = arr_nomCampos.length;
 
@@ -101,7 +101,7 @@ public class ClsGestorTienda {
         }
 
         // se solicita al objeto conexión que inserte el registro y se espera el resultado
-        return conexion.insertaReg("tblAlumnos", colCampos);
+        return conexion.insertaReg("User", colCampos);
     }
 // ---------------------------------------------------------------------------    
 
