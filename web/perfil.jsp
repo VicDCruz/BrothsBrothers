@@ -22,7 +22,7 @@
 
         <!-- Custom styles for this template -->
         <link href="dashboard.css" rel="stylesheet">
-        
+
     </head>
 
     <body>
@@ -54,7 +54,7 @@
                         </ul>
                     </div>
                 </nav>
-                
+
                 <main role="main" class="col-md-9 px-4">
                     <%
                         ClsGestorTienda gestor = ((ClsGestorTienda) session.getAttribute("miGestor"));
@@ -62,6 +62,7 @@
                             request.getRequestDispatcher("index.jsp").forward(request, response);
                         }
                     %>
+                    <br>
                     <div class="border-bottom">
                         <h2>Datos personales</h2>
                     </div>
@@ -95,27 +96,29 @@
                         java.sql.ResultSet dirs = gestor.obtenDireccionesUsuario(Integer.parseInt(session.getAttribute("id").toString()));
                         int i = 1;
                         while (dirs.next()) {
-                            out.println("<div class='table-responsive'>");
-                            out.println("<h4>Dirección " + i + "</h4>");
-                            out.println("<table class='table table-sm table-borderless table-hover'>");
-                            out.println("<tbody>");
-                            out.println("<tr><td>Dirección</td>");
-                            out.println("<td>" + dirs.getString("address") + "</td></tr>");
-                            out.println("<tr><td>Ciudad</td>");
-                            out.println("<td>" + dirs.getString("city") + "</td></tr>");
-                            out.println("<tr><td>Código postal</td>");
-                            out.println("<td>" + dirs.getString("zipCode") + "</td></tr>");
-                            out.println("<tr><td>País</td>");
-                            out.println("<td>" + dirs.getString("country") + "</td></tr>");
-                            out.println("</tbody>");
-                            out.println("</table");
-                            out.println("<div class='btn-toolbar mb-2 mb-md-0'>");
-                            out.println("<div class='btn-group-vertical mr-2 float-right'>");
-                            out.println("<button type='button' class='btn btn-sm btn-secondary'>Editar</button>");
-                            out.println("<button type='button' class='btn btn-sm btn-danger'>Eliminar</button>");
-                            out.println("</div>");
-                            out.println("</div>");
-                            out.println("</div>");
+                    %>
+                    <div class="table-responsive">
+                        <h4>Dirección <%=i%></h4>
+                        <table class="table table-sm table-borderless table-hover">
+                            <tbody>
+                                <tr><td>Dirección</td>
+                                    <td><%=dirs.getString("address")%></td></tr>
+                                <tr><td>Ciudad</td>
+                                    <td><%=dirs.getString("city")%></td></tr>
+                                <tr><td>Código postal</td>
+                                    <td><%=dirs.getString("zipCode")%></td></tr>
+                                <tr><td>País</td>
+                                    <td><%=dirs.getString("country")%></td></tr>
+                            </tbody>
+                        </table>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                            <div class="btn-group-vertical mr-2 float-right">
+                                <button type="button" class="btn btn-sm btn-secondary">Editar</button>
+                                <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <%
                             i++;
                         }
                     %>
@@ -126,30 +129,33 @@
                         java.sql.ResultSet pagos = gestor.obtenMetodosPagoUsuario(Integer.parseInt(session.getAttribute("id").toString()));
                         i = 1;
                         while (pagos.next()) {
-                            out.println("<div class='table-responsive'>");
-                            out.println("<h4>Método " + i + "</h4>");
-                            out.println("<table class='table table-sm table-borderless table-hover'>");
-                            out.println("<tbody>");
-                            out.println("<tr><td>Tipo</td>");
-                            out.println("<td>" + pagos.getString("type") + "</td></tr>");
-                            out.println("<tr><td>Descripción</td>");
-                            out.println("<td>" + pagos.getString("description") + "</td></tr>");
-                            out.println("</tbody>");
-                            out.println("</table");
-                            out.println("<div class='btn-toolbar mb-2 mb-md-0'>");
-                            out.println("<div class='btn-group-vertical mr-2 float-right'>");
-                            out.println("<button type='button' class='btn btn-sm btn-secondary'>Editar</button>");
-                            out.println("<button type='button' class='btn btn-sm btn-danger'>Eliminar</button>");
-                            out.println("</div>");
-                            out.println("</div>");
-                            out.println("</div>");
+                    %>
+                    <div class="table-responsive">
+                        <h4>Método <%=i%></h4>
+                        <table class="table table-sm table-borderless table-hover">
+                            <tbody>
+                                <tr><td>Tipo</td>
+                                    <td><%=pagos.getString("type")%></td></tr>
+                                <tr><td>Descripción</td>
+                                    <td><%=pagos.getString("description")%></td></tr>
+                            </tbody>
+                        </table>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                            <div class="btn-group-vertical mr-2 float-right">
+                                <button type="button" class="btn btn-sm btn-secondary">Editar</button>
+                                <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <%
                             i++;
                         }
                     %>
+                    <br>
                 </main>
             </div>
         </div>
-       
+
         <%@ include file="footer.html" %>
     </body>
 
