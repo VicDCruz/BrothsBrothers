@@ -15,7 +15,7 @@ and open the template in the editor.
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Kiwools</title>
+    <title>Broths & Brothers</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -25,7 +25,7 @@ and open the template in the editor.
     
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 font-weight-normal">Cubos de kiwools</h1>
+            <h1 class="display-4 font-weight-normal">Cubos de broths & brothers</h1>
             <p class="lead font-weight-normal">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi qui nulla eius? Neque reiciendis, et porro totam voluptatibus excepturi quam illum libero nisi quidem assumenda inventore labore tempore, quo officia!</p>
             <a class="btn btn-outline-secondary" href="#">Coming soon</a>
         </div>
