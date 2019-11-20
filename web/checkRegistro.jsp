@@ -29,12 +29,6 @@
             <div class="form-row">
                 <div class="col-md-4 mx-auto">
                     <%
-                        response.setContentType("text/html");
-                        java.io.PrintWriter pr = response.getWriter();
-                        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
-                        response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
-                        response.setDateHeader("Expires", 0); // Proxies.
-
                         ClsGestorTienda gestor = new ClsGestorTienda();
                         gestor.conectaBD();
 
@@ -55,29 +49,34 @@
                             arr_nomCampos[4] = "password";
 
                             if (gestor.altaUsuario(arr_nomCampos, arr_valCampos)) {
-                                pr.print("<include src='./header.html'></include>");
-                                pr.print("<form>");
-                                pr.println("<div class='container'>");
-                                pr.println("<div class='row justify-content-md-center'>");
-                                pr.println("<div class='col col-lg-4'>");
-                                pr.println("<br><br><br><br><h4>Usuario registrado con Exito</h4>");
-                                pr.println("<p>");
-                                broths.MiModelo mm = gestor.obtenModeloUsuario(arr_valCampos[0]);
-                                for (int col = 0; col < mm.getColumnCount() - 1; col++) {
-                                    pr.println("<br>" + mm.getColumnName(col) + ": " + (String) mm.getValueAt(0, col));
-                                }
-                                pr.println("</p");
-                                pr.print("</div>");
-                                pr.print("</div>");
-                                pr.print("</div>");
-                                pr.print("</form>");
-                            } else {
-                                pr.println("<h4 class='alert-heading'>No se registro al usuario</h4>");
-                                pr.println("<p>");
-                                for (int col = 0; col < arr_valCampos.length; col++) {
-                                    pr.println("<br>" + arr_nomCampos[col] + ":" + arr_valCampos[col]);
-                                }
-                                pr.println("</p");
+                    %>
+                    <br><h4>Usuario registrado con Exito</h4>
+                    <p>
+                        <%
+                            broths.MiModelo mm = gestor.obtenModeloUsuario(arr_valCampos[0]);
+                            for (int col = 0; col < mm.getColumnCount() - 1; col++) {
+                        %>
+                        <br><%=mm.getColumnName(col)%>: <%=(String) mm.getValueAt(0, col)%>;
+                        <%
+                            }
+                        %>
+                    </p>
+                    <%
+                    } else {
+                    %>
+                    <br>
+                    <h4 class="alert-heading">No se registro al usuario</h4>
+                    <p>
+                        <%
+                            for (int col = 0; col < arr_valCampos.length; col++) {
+                        %>
+                        <br>
+                        <%=arr_nomCampos[col]%>: <%= arr_valCampos[col]%>
+                        <%
+                            }
+                        %>
+                    </p>
+                    <%
                             }
                             gestor.desconecta();
                         }
