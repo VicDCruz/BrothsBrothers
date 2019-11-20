@@ -1,6 +1,8 @@
 package kiwools;
 
 import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -171,16 +173,16 @@ public class ClsGestorTienda {
         return conexion.conectate(email, pass);
     }
     
-    public java.sql.ResultSet obtenDatosUsuario(int id) {
+    public ResultSet obtenDatosUsuario(int id) {
         return conexion.obtenRegSelect("select * from User where id=" + id);
     }
     
-    public java.sql.ResultSet obtenDireccionesUsuario(int id) {
+    public ResultSet obtenDireccionesUsuario(int id) {
         return conexion.obtenRegSelect("select * from ShippingAddress where userId=" + id);
     }
     
-    public java.sql.ResultSet obtenMetodosPagoUsuario(int id) {
-        return null;
+    public ResultSet obtenMetodosPagoUsuario(int id) throws SQLException {
+        return conexion.obtenRegSelect("select type, description from Payment inner join PaymentMethod on Payment.idPayment=PaymentMethod.Id where idUser=" + id);
     }
 
 }

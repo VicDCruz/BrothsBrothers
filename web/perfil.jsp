@@ -54,6 +54,7 @@
                         </ul>
                     </div>
                 </nav>
+                
                 <main role="main" class="col-md-9 px-4">
                     <%
                         ClsGestorTienda gestor = ((ClsGestorTienda) session.getAttribute("miGestor"));
@@ -85,51 +86,66 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <button type="button" class="btn btn-sm btn-secondary float-right">Editar</button>
                     </div>
                     <div class="border-bottom">
                         <h2>Direcciones de envío</h2>
                     </div>
-                        <%
-                            java.sql.ResultSet dirs = gestor.obtenDireccionesUsuario(Integer.parseInt(session.getAttribute("id").toString()));
-                            while (dirs.next()) {
-                                out.println("<div class='table-responsive'>");
-                                out.println("<h4>Dirección " + dirs.getString("id") + "</h4>");
-                                out.println("<table class='table table-sm table-borderless table-hover'>");
-                                out.println("<tbody>");
-                                out.println("<tr><td>Dirección</td>");
-                                out.println("<td>" + dirs.getString("address") + "</td></tr>");
-                                out.println("<tr><td>Ciudad</td>");
-                                out.println("<td>" + dirs.getString("city") + "</td></tr>");
-                                out.println("<tr><td>Código postal</td>");
-                                out.println("<td>" + dirs.getString("zipCode") + "</td></tr>");
-                                out.println("<tr><td>País</td>");
-                                out.println("<td>" + dirs.getString("country") + "</td></tr>");
-                                out.println("</tbody>");
-                                out.println("</table");
-                                out.println("</div>");
-                            }
-                        %>
+                    <%
+                        java.sql.ResultSet dirs = gestor.obtenDireccionesUsuario(Integer.parseInt(session.getAttribute("id").toString()));
+                        int i = 1;
+                        while (dirs.next()) {
+                            out.println("<div class='table-responsive'>");
+                            out.println("<h4>Dirección " + i + "</h4>");
+                            out.println("<table class='table table-sm table-borderless table-hover'>");
+                            out.println("<tbody>");
+                            out.println("<tr><td>Dirección</td>");
+                            out.println("<td>" + dirs.getString("address") + "</td></tr>");
+                            out.println("<tr><td>Ciudad</td>");
+                            out.println("<td>" + dirs.getString("city") + "</td></tr>");
+                            out.println("<tr><td>Código postal</td>");
+                            out.println("<td>" + dirs.getString("zipCode") + "</td></tr>");
+                            out.println("<tr><td>País</td>");
+                            out.println("<td>" + dirs.getString("country") + "</td></tr>");
+                            out.println("</tbody>");
+                            out.println("</table");
+                            out.println("<div class='btn-toolbar mb-2 mb-md-0'>");
+                            out.println("<div class='btn-group-vertical mr-2 float-right'>");
+                            out.println("<button type='button' class='btn btn-sm btn-secondary'>Editar</button>");
+                            out.println("<button type='button' class='btn btn-sm btn-danger'>Eliminar</button>");
+                            out.println("</div>");
+                            out.println("</div>");
+                            out.println("</div>");
+                            i++;
+                        }
+                    %>
                     <div class="border-bottom">
                         <h2>Métodos de pago</h2>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table table-sm table-borderless table-hover">
-                            <tbody>
-                                <tr>
-                                    <td>Nombre</td>
-                                    <td>Lorem</td>
-                                </tr>
-                                <tr>
-                                    <td>Alias</td>
-                                    <td>Lorem</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>Lorem</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <%
+                        java.sql.ResultSet pagos = gestor.obtenMetodosPagoUsuario(Integer.parseInt(session.getAttribute("id").toString()));
+                        i = 1;
+                        while (pagos.next()) {
+                            out.println("<div class='table-responsive'>");
+                            out.println("<h4>Método " + i + "</h4>");
+                            out.println("<table class='table table-sm table-borderless table-hover'>");
+                            out.println("<tbody>");
+                            out.println("<tr><td>Tipo</td>");
+                            out.println("<td>" + pagos.getString("type") + "</td></tr>");
+                            out.println("<tr><td>Descripción</td>");
+                            out.println("<td>" + pagos.getString("description") + "</td></tr>");
+                            out.println("</tbody>");
+                            out.println("</table");
+                            out.println("<div class='btn-toolbar mb-2 mb-md-0'>");
+                            out.println("<div class='btn-group-vertical mr-2 float-right'>");
+                            out.println("<button type='button' class='btn btn-sm btn-secondary'>Editar</button>");
+                            out.println("<button type='button' class='btn btn-sm btn-danger'>Eliminar</button>");
+                            out.println("</div>");
+                            out.println("</div>");
+                            out.println("</div>");
+                            i++;
+                        }
+                    %>
                 </main>
             </div>
         </div>
