@@ -13,10 +13,12 @@ public class Product {
 
     private int id;
     private int wanted;
+    private float price;
 
-    public Product(int id, int wanted) {
+    public Product(int id, int wanted, float price) {
         this.id = id;
         this.wanted = wanted;
+        this.price = price;
     }
 
     public int getId() {
@@ -33,6 +35,14 @@ public class Product {
 
     public void setWanted(int wanted) {
         this.wanted = wanted;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 
     @Override

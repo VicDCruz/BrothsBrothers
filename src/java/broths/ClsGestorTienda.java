@@ -1,5 +1,9 @@
 package broths;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * ClsGestorTienda.java
  */
@@ -165,6 +169,26 @@ public class ClsGestorTienda {
 
     public java.sql.ResultSet obtenCatalogo() {
         return conexion.obtenRS("Catalog");
+    }
+    
+    public java.sql.ResultSet obtenCatalogo(String filters) {
+        String concat = "";
+        for (String filter : filters.split(" ")) {
+            concat += "UCase(description) like '*" + filter.toUpperCase() + "*' or UCase(product) like '*" + filter.toUpperCase() + "*' or ";
+        }
+        concat = concat.substring(0, concat.length() - 4);
+        return conexion.obtenRegSelect("Select * from Catalog where " + concat);
+    }
+    
+    public MiModelo obtenProducto(String id) {
+        java.sql.ResultSet rs = conexion.obtenRegSelect("Select * from Catalog where id=" + id);
+        MiModelo elModelo = new MiModelo(rs);
+        try {
+            rs.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return elModelo;
     }
     
 }
