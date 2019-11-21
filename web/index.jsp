@@ -25,9 +25,10 @@ and open the template in the editor.
     
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 font-weight-normal">Caldos en gel de Broths & Brothers</h1>
-            <p class="lead font-weight-normal">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi qui nulla eius? Neque reiciendis, et porro totam voluptatibus excepturi quam illum libero nisi quidem assumenda inventore labore tempore, quo officia!</p>
-            <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+            <img class="mb-4" alt="BrothsBrothers" width="100%" height="100%"
+                        src="/BrothsBrothers/img/brothsT.png">
+            <p class="lead font-weight-normal">Caldos de diferentes sabores reducidos a punto de gel, listos para agregar a tu platillo favorito. <br> ¡Prueba <b>Broths & Brothers</b>, la manera más fácil de cocinar!</p>
+            <a class="btn btn-dark" href="#">Coming soon</a>
         </div>
     </div>
     <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
