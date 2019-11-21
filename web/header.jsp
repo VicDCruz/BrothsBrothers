@@ -20,7 +20,7 @@ and open the template in the editor.
             <br>
             Catálogo
         </a>
-        <a class="py-2 d-none d-md-inline-block text-center" href="recipes.jsp">
+        <a class="py-2 d-none d-md-inline-block text-center" href="recipe_types.jsp">
             <i class="fas fa-utensils"></i>
             <br>
             Recetas
