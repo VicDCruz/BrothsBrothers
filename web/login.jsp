@@ -39,7 +39,7 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-md-4 mx-auto">
-                    <img class="mb-4" src="/BrothsBrothers/img/Bootstrap.png" alt="" width="72" height="72">
+                    <img class="mb-4" src="/BrothsBrothers/img/brothsRidgeT.png" alt="" width="150" height="150">
                     <h2>Inicia sesión</h2>
                     <br>
                     <form action="checkuser.jsp" method="post">

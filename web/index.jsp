@@ -42,13 +42,13 @@ and open the template in the editor.
 
 <body>
     <%@ include file="header.jsp" %>
-
-    <div class="row position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
-        <div class="col-md-6">
-            <h1 class="display-4 font-weight-normal" style="color: #ec3747;">Sazonadores <br> Broths & Brothers</h1>
-            <p class="lead font-weight-normal">Llevamos hasta tu mesa el sabor de la más alta cocina mexicana de forma rápida y sencilla, permitiendote disfrutar los momentos importantes de la vida.</p>
-            <a class="btn btn-outline-secondary" href="catalog.jsp">Conoce nuestros productos</a>
-
+    
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <img class="mb-4" alt="BrothsBrothers" width="100%" height="100%"
+                        src="/BrothsBrothers/img/brothsT.png">
+            <p class="lead font-weight-normal">Caldos de diferentes sabores reducidos a punto de gel, listos para agregar a tu platillo favorito. <br> ¡Prueba <b>Broths & Brothers</b>, la manera más fácil de cocinar!</p>
+            <a class="btn btn-dark" href="#">Coming soon</a>
         </div>
         <div class="col-md-6 text-center">
             <img src="img/inicio/comida.jpg" alt="" class="img-responsive">
