@@ -1,3 +1,5 @@
+
+<%@page import="java.net.URLEncoder"%>
 <%@page import="broths.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="broths.ShoppingCart"%>
@@ -88,7 +90,14 @@ and open the template in the editor.
 
                                 <script type="text/javascript"> var total_carrito = 0; </script>
 
-                            <%
+                            <% 
+
+
+                                String url = request.getRequestURI();
+                                url = url.replaceAll("/BrothsBrothers/","");
+                                url = url.replaceAll(".jsp","");
+                                
+                                
                                 ShoppingCart cart = ((broths.ShoppingCart) session.getAttribute("carrito"));
                                 int total = 0;
                                 if (cart != null) {
@@ -107,7 +116,7 @@ and open the template in the editor.
                                             out.print( "    <th scope='row'>" + p.getName() + "</th>" );
                                             out.print( "    <td class='text-center'>" + p.getWanted() + "</td>" );
                                             out.print( "    <td class='text-center'>" + p.getPrice() + "</td>" );
-                                            out.print( "    <td class='text-center'><a href='delete_item_cart.jsp?id="+p.getId()+"'>Eliminar</a></td>" );
+                                            out.print( "    <td class='text-center'><a href='delete_item_cart.jsp?id="+p.getId()+"&url="+URLEncoder.encode(url, "UTF-8")+"'>Eliminar</a></td>" );
                                             out.print( "</tr>" );
 
                                         }
@@ -299,9 +308,9 @@ and open the template in the editor.
             title: '<strong>Pago exitoso</strong>',
             icon: 'success',
             html:
-            'Su pago fue procesado correctamente, ' +
-            'en breve recibirá un correo con su ticket electrónico.' +
-            '<br><br>Usted puede realizar un seguimiento de su paquete desde la sección "mi cuenta" en el apatado "Pedidos"',
+            'Tu pago fue procesado correctamente, ' +
+            'en breve recibirás un correo con tu ticket electrónico.' +
+            '<br><br>También puedes realizar un seguimiento de tu paquete desde la sección "mi cuenta" en el apatado "Pedidos en curso"',
             showCloseButton: true,
             showCancelButton: false,
             focusConfirm: true,

@@ -46,7 +46,7 @@ and open the template in the editor.
     <div class="row position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
         <div class="col-md-6">
             <h1 class="display-4 font-weight-normal" style="color: #ec3747;">Sazonadores <br> Broths & Brothers</h1>
-            <p class="lead font-weight-normal">Llevamos hasta tu mesa el sabor de la más alta cocina mexicana de forma rápida y sencilla, permitiendote compartir más momentos con tus seres queridos.</p>
+            <p class="lead font-weight-normal">Llevamos hasta tu mesa el sabor de la más alta cocina mexicana de forma rápida y sencilla, permitiendote disfrutar los momentos importantes de la vida.</p>
             <a class="btn btn-outline-secondary" href="catalog.jsp">Conoce nuestros productos</a>
         </div>
         <div class="col-md-6 text-center">

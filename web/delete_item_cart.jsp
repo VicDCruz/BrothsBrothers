@@ -23,14 +23,16 @@ and open the template in the editor.
 
     <body>
         <%
+
             ShoppingCart cart = ((broths.ShoppingCart) session.getAttribute("carrito")); 
             if (cart != null){
-                int id = Integer.parseInt((String) request.getParameter("id"));                   
+                int id = Integer.parseInt((String) request.getParameter("id"));   
+                String url = (String) request.getParameter("url");                   
                 
                 cart.remove(id, 1);
                 session.setAttribute("carrito", cart);
                 //request.getRequestDispatcher("index.jsp").forward(request, response);
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher(url+".jsp");
                 request.setAttribute("show", "show");
                 requestDispatcher.forward(request, response);
 
