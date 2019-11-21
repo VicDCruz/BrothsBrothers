@@ -31,7 +31,11 @@ public class ClsConexion {
         this.strNomDB = strNomDB + ".accdb";
     }
 
+<<<<<<< HEAD
         public int conectate(String unUID, String unPwd) {
+=======
+    public int conectate(String unUID, String unPwd) {
+>>>>>>> dev
         strUID = unUID;
         String strSel = "Select password, id from User where email = '"
                 + unUID + "'";

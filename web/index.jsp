@@ -21,11 +21,11 @@ and open the template in the editor.
 </head>
 
 <body>
-    <%@ include file="header.html" %>
+    <%@ include file="header.jsp" %>
     
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 font-weight-normal">Cubos de broths & brothers</h1>
+            <h1 class="display-4 font-weight-normal">Caldos en gel de Broths & Brothers</h1>
             <p class="lead font-weight-normal">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi qui nulla eius? Neque reiciendis, et porro totam voluptatibus excepturi quam illum libero nisi quidem assumenda inventore labore tempore, quo officia!</p>
             <a class="btn btn-outline-secondary" href="#">Coming soon</a>
         </div>
