@@ -17,12 +17,16 @@ public class ClsGestorTienda {
     ClsConexion conexion;
 // ---------------------------------------------------------------------------    
 
+
     public ClsGestorTienda() {
         conexion = new ClsConexion("Store");
     }
 // ---------------------------------------------------------------------------        
 
+  /*  public boolean conectaBD(String strUsuario, String strContrasenha) {
+=======
     /*public boolean conectaBD(String strUsuario, String strContrasenha) {
+>>>>>>> dev
         return conexion.conectate(strUsuario, strContrasenha);
     }*/
 // ---------------------------------------------------------------------------        
@@ -42,15 +46,15 @@ public class ClsGestorTienda {
     }
 // ---------------------------------------------------------------------------
 
-    public MiModelo obtenModeloAlumno(String clvAlumno) {
-        java.sql.ResultSet rs = conexion.obtenRegSelect("Select * from tblAlumnos where clvAlumno='" + clvAlumno + "'");
+    public MiModelo obtenModeloUsuario(String clvAlumno) {
+        java.sql.ResultSet rs = conexion.obtenRegSelect("Select * from User where id='" + clvAlumno + "'");
         MiModelo elModelo = new MiModelo(rs);
         return elModelo;
     }
 // ---------------------------------------------------------------------------
 
-    public MiModelo obtenModeloAlumnos() {
-        java.sql.ResultSet rs = conexion.obtenRegSelect("Select * from tblAlumnos");
+    public MiModelo obtenModeloUsuarios() {
+        java.sql.ResultSet rs = conexion.obtenRegSelect("Select * from User");
         MiModelo elModelo = new MiModelo(rs);
         return elModelo;
     }
@@ -92,11 +96,11 @@ public class ClsGestorTienda {
 //                            Altas de registros 
 // ---------------------------------------------------------------------------
 
-    public boolean altaAlumno(String arr_nomCampos[], String arr_datos[]) {
+    public boolean altaUsuario(String arr_nomCampos[], String arr_datos[]) {
         int i, n;
 
         // se obtiene la colección de campos de la tabla de los alumnos
-        java.util.TreeMap<String, ClsCampoBD> colCampos = conexion.obtenMapaCampos(conexion.obtenRS("tblAlumnos"));
+        java.util.TreeMap<String, ClsCampoBD> colCampos = conexion.obtenMapaCampos(conexion.obtenRS("User"));
 
         n = arr_nomCampos.length;
 
@@ -106,7 +110,7 @@ public class ClsGestorTienda {
         }
 
         // se solicita al objeto conexión que inserte el registro y se espera el resultado
-        return conexion.insertaReg("tblAlumnos", colCampos);
+        return conexion.insertaReg("User", colCampos);
     }
 // ---------------------------------------------------------------------------    
 
@@ -184,6 +188,23 @@ public class ClsGestorTienda {
         return conexion.obtenRegSelect("select type, description from Payment inner join PaymentMethod on Payment.idPayment=PaymentMethod.Id where idUser=" + id);
     }
 
+    
+     public java.sql.ResultSet obtenRecetas(String categoria) {
+        return conexion.obtenRegSelect("Select * from Recipes where tipo='" + categoria + "'");
+    }
+     
+
+   public int cuentaUsuarios() {
+        java.sql.ResultSet rs = conexion.obtenRegSelect("Select COUNT(*) as total from User");
+        MiModelo elModelo = new MiModelo(rs);
+        try {
+            rs.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return Integer.parseInt((String) elModelo.getValueAt(0, 0));
+    }
+
     public ResultSet obtenCatalogo() {
         return conexion.obtenRS("Catalog");
     }
@@ -200,11 +221,6 @@ public class ClsGestorTienda {
     public MiModelo obtenProducto(String id) {
         ResultSet rs = conexion.obtenRegSelect("Select * from Catalog where id=" + id);
         MiModelo elModelo = new MiModelo(rs);
-        try {
-            rs.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
         return elModelo;
     }
     
@@ -212,4 +228,5 @@ public class ClsGestorTienda {
         return conexion.conectate("demo", "demo") >= 0;
     }
     
+
 }

@@ -43,6 +43,15 @@
     </head>
 
     <body>
+        <%
+            if (session.getAttribute("id") == null || session.getAttribute("miGestor") == null) {
+                session.setAttribute("unlogAcc", true);
+                response.sendRedirect("login.jsp");
+                return;
+            }
+            ClsGestorTienda gestor = ((ClsGestorTienda) session.getAttribute("miGestor"));
+            int id = Integer.parseInt(session.getAttribute("id").toString());
+        %>
         <%@ include file="header.jsp" %>
 
         <div class="container-fluid">
@@ -73,19 +82,13 @@
                 </nav>
 
                 <main role="main" class="col-md-9 px-4">
-                    <%
-                        ClsGestorTienda gestor = ((ClsGestorTienda) session.getAttribute("miGestor"));
-                        if (gestor == null) {
-                            request.getRequestDispatcher("index.jsp").forward(request, response);
-                        }
-                    %>
                     <br>
                     <div class="border-bottom">
                         <h2>Datos personales</h2>
                     </div>
                     <div class="table-responsive">
                         <%
-                            java.sql.ResultSet info = gestor.obtenDatosUsuario(Integer.parseInt(session.getAttribute("id").toString()));
+                            java.sql.ResultSet info = gestor.obtenDatosUsuario(id);
                             info.next();
                         %>
                         <table class="table table-sm table-borderless table-hover">
@@ -111,7 +114,7 @@
                         <h2>Direcciones de envío</h2>
                     </div>
                     <%
-                        java.sql.ResultSet dirs = gestor.obtenDireccionesUsuario(Integer.parseInt(session.getAttribute("id").toString()));
+                        java.sql.ResultSet dirs = gestor.obtenDireccionesUsuario(id);
                         int i = 1;
                         while (dirs.next()) {
                     %>
@@ -159,7 +162,7 @@
                         <h2>Métodos de pago</h2>
                     </div>
                     <%
-                        java.sql.ResultSet pagos = gestor.obtenMetodosPagoUsuario(Integer.parseInt(session.getAttribute("id").toString()));
+                        java.sql.ResultSet pagos = gestor.obtenMetodosPagoUsuario(id);
                         i = 1;
                         while (pagos.next()) {
                     %>

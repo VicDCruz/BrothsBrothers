@@ -32,8 +32,9 @@ and open the template in the editor.
             Carrito (<span class="tot_carrito">0</span>)
         </a>
 
+
         <%
-        if (session.getAttribute("id") == null) {
+        if (session.getAttribute("id") == null && session.getAttribute("miGestor") == null) {
         %>
         <a class="py-2 d-none d-md-inline-block text-center" href="login.jsp">
             <i class="fas fa-user"></i>
@@ -59,6 +60,7 @@ and open the template in the editor.
         
     </div>
 </nav>
+
 
 
 <!-- MODAL CARRITO -->
@@ -385,3 +387,4 @@ and open the template in the editor.
     });
 
 </script>
+
