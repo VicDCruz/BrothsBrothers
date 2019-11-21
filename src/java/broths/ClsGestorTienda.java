@@ -17,9 +17,9 @@ public class ClsGestorTienda {
     }
 // ---------------------------------------------------------------------------        
 
-    public boolean conectaBD(String strUsuario, String strContrasenha) {
+  /*  public boolean conectaBD(String strUsuario, String strContrasenha) {
         return conexion.conectate(strUsuario, strContrasenha);
-    }
+    }*/
 // ---------------------------------------------------------------------------        
 
     public boolean conectado() {
@@ -169,6 +169,7 @@ public class ClsGestorTienda {
      
      
     public boolean conectaBD() {
-        return conexion.conectate("demo", "demo");
+        return conexion.conectate("demo", "demo") >= 0;
     }
+
 }
