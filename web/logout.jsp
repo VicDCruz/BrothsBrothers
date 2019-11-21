@@ -20,7 +20,7 @@
             
             session.removeAttribute("miGestor");
             session.removeAttribute("id");
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            response.sendRedirect("/BrothsBrothers");
         %>
     </body>
 </html>
