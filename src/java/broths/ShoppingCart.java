@@ -22,8 +22,8 @@ public class ShoppingCart {
         this.products = new ArrayList<Product>();
     }
     
-    public void add(int id, int quantity, float price) {
-        Product prod = new Product(id, quantity, price);
+    public void add(int id, String name, int quantity, float price) {
+        Product prod = new Product(id, name, quantity, price);
         if (!this.products.contains(prod)) {
             this.products.add(prod);
         } else {
@@ -37,11 +37,11 @@ public class ShoppingCart {
     }
     
     public void remove(int id, int quantity) {
-        Product prod = new Product(id, 0, 0);
+        Product prod = new Product(id, "", 0, 0);
         if (this.products.contains(prod)) {
             int index = this.products.indexOf(prod);
             Product tmp = this.products.get(index);
-            tmp.setWanted(quantity - tmp.getWanted());
+            tmp.setWanted(tmp.getWanted() - quantity);
             if (tmp.getWanted() <= 0)
                 this.products.remove(index);
             else
@@ -53,6 +53,12 @@ public class ShoppingCart {
 
     public float getTotal() {
         return total;
+    }
+    
+    public ArrayList<Product> getProducts(){
+        
+        return products;
+        
     }
 
     public int getCount() {

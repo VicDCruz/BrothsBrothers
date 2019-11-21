@@ -12,11 +12,13 @@ package broths;
 public class Product {
 
     private int id;
+    private String name;
     private int wanted;
     private float price;
 
-    public Product(int id, int wanted, float price) {
+    public Product(int id, String name, int wanted, float price) {
         this.id = id;
+        this.name = name;
         this.wanted = wanted;
         this.price = price;
     }
@@ -31,6 +33,10 @@ public class Product {
 
     public int getWanted() {
         return wanted;
+    }
+    
+    public String getName() {
+        return name;
     }
 
     public void setWanted(int wanted) {

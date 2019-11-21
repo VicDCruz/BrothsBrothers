@@ -54,7 +54,9 @@ public class ClsConexion {
             // Parametrizar la ruta por medio de propiedades obtenidas desde un archivo o en la
             // línea de comandos de ejecución del jar
             //
-            con = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/cecij/Documents/ProyectofinalSCE/BrothsBrothers/" + this.strNomDB);
+
+            con = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/brb47/Documents/BrothsBrothers/" + this.strNomDB);
+
             //con = DriverManager.getConnection("jdbc:ucanaccess://"+ this.strNomDB); 
 
             // Si todo va bien, verifica el unID y unPwd

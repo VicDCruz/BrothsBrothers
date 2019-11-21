@@ -23,16 +23,12 @@ and open the template in the editor.
 
     <body>
         <%
-            ShoppingCart cart = ((broths.ShoppingCart) session.getAttribute("carrito")); 
-            if (cart == null)
-                cart = new ShoppingCart();
-            int id = Integer.parseInt((String) request.getParameter("id"));
-            int quantity = Integer.parseInt((String) request.getParameter("quantity"));
-            float price = Float.parseFloat((String) request.getParameter("price"));
-            String name = (String) request.getParameter("name");
-            cart.add(id, name, quantity, price);
+            ShoppingCart cart = new ShoppingCart();
             session.setAttribute("carrito", cart);
-            request.getRequestDispatcher("catalog.jsp").forward(request, response);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+            request.setAttribute("compra_realizada", "true");
+            requestDispatcher.forward(request, response);
+            
         %>
     </body>
 
