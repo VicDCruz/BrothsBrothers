@@ -25,7 +25,7 @@
               session.setAttribute("miGestor", gestor);
               session.setAttribute("id", id);
               session.removeAttribute("error");
-              request.getRequestDispatcher("perfil.jsp").forward(request, response);
+              request.getRequestDispatcher("index.jsp").forward(request, response);
           } else {
               session.setAttribute("error", true);
               request.getRequestDispatcher("login.jsp").forward(request, response);

@@ -112,17 +112,31 @@
                                     <td><%=dirs.getString("country")%></td></tr>
                             </tbody>
                         </table>
-                        <div class="btn-toolbar mb-2 mb-md-0">
-                            <div class="btn-group-vertical mr-2 float-right">
+                        <div class="btn-toolbar mb-2 mb-md-0 float-right">
+                            <div class="btn-group-vertical mr-2">
                                 <button type="button" class="btn btn-sm btn-secondary">Editar</button>
                                 <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
                             </div>
                         </div>
                     </div>
+                    <br>
                     <%
                             i++;
                         }
+                        if (i == 1) {
+                        // Indicar que no hay direcciones guardadas.
                     %>
+                    <h5>¡Aún no tienes direcciones guardadas!</h5>
+                    <%
+                        }
+                    %>
+                    <br>
+                    <div class="btn-toolbar mb-2 mb-md-0 float-right">
+                        <div class="btn-group-vertical mr-2">
+                            <button type="button" class="btn btn-sm btn-info">Agregar</button>
+                        </div>
+                    </div>
+                    <br><br>
                     
                     <div class="border-bottom">
                         <h2>Métodos de pago</h2>
@@ -131,6 +145,41 @@
                         java.sql.ResultSet pagos = gestor.obtenMetodosPagoUsuario(Integer.parseInt(session.getAttribute("id").toString()));
                         i = 1;
                         while (pagos.next()) {
+                    %>
+                    <div class="table-responsive">
+                        <h4>Método <%=i%></h4>
+                        <table class="table table-sm table-borderless table-hover">
+                            <tbody>
+                                <tr><td>Tipo</td>
+                                    <td><%=pagos.getString("type")%></td></tr>
+                                <tr><td>Descripción</td>
+                                    <td><%=pagos.getString("description")%></td></tr>
+                            </tbody>
+                        </table>
+                        <div class="btn-toolbar mb-2 mb-md-0 float-right">
+                            <div class="btn-group-vertical mr-2">
+                                <button type="button" class="btn btn-sm btn-secondary">Editar</button>
+                                <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <%
+                            i++;
+                        }
+                        if (i == 1) {
+                        // Indicar que no hay métodos de pago guardados.
+                    %>
+                    <h5>¡Aún no tienes métodos de pago guardados!</h5>
+                    <%
+                        }
+                    %>
+                    <br>
+                    <div class="btn-toolbar mb-2 mb-md-0 float-right">
+                        <div class="btn-group-vertical mr-2">
+                            <button type="button" class="btn btn-sm btn-info">Agregar</button>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>
