@@ -31,11 +31,12 @@ public class ClsConexion {
         this.strNomDB = strNomDB + ".accdb";
     }
 
-    public boolean conectate(String unUID, String unPwd) {
+
+    public int conectate(String unUID, String unPwd) {
         strUID = unUID;
-        String strSel = "Select password from User where email = '"
+        String strSel = "Select password, id from User where email = '"
                 + unUID + "'";
-        boolean res = false;
+        int res = -1;
 
         try {
             //Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
@@ -53,15 +54,17 @@ public class ClsConexion {
             // Parametrizar la ruta por medio de propiedades obtenidas desde un archivo o en la
             // línea de comandos de ejecución del jar
             //
-            con = DriverManager.getConnection("jdbc:ucanaccess://./" + this.strNomDB);
+
+            con = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/brb47/Documents/BrothsBrothers/" + this.strNomDB);
+
             //con = DriverManager.getConnection("jdbc:ucanaccess://"+ this.strNomDB); 
 
             // Si todo va bien, verifica el unID y unPwd
             ResultSet rs = this.obtenRegSelect(strSel);
             if (rs.next()) {
-                String strContrasenha = rs.getString(1);
+                String strContrasenha = rs.getString("password");
                 if (strContrasenha.compareTo(unPwd) == 0) {
-                    res = true;
+                    res = rs.getInt("id");
                 } else {
                     con.close();
                     con = null;
@@ -357,7 +360,7 @@ public class ClsConexion {
     public static void main(String[] args) {
         //System.out.println("Hola...");
         // int intPrueba[] = {1, 5, 4, 6, 2, 7, 2};
-        int intPrueba[] = {1, 2, 3, 4, 5};
+        int intPrueba[] = {5};
         int i, n = intPrueba.length;
         ResultSet r = null;
         java.util.TreeMap<String, ClsCampoBD> colCampos = null;
@@ -399,17 +402,18 @@ public class ClsConexion {
                             System.out.println(c.impRS(r));
                             break;
                         case 5:
+                            // https://stackoverflow.com/a/27901623
                             colCampos = new TreeMap<String, ClsCampoBD>();
-//                            colCampos.put("id",
-//                                    new ClsCampoBD("id", "4", ClsCampoBD.TIPO_INTEGER, ""));
+                            colCampos.put("id",
+                                    new ClsCampoBD("id", "4", ClsCampoBD.TIPO_INTEGER, ""));
                             colCampos.put("email",
-                                    new ClsCampoBD("email", "angel@itam.mx", ClsCampoBD.TIPO_VARCHAR, ""));
+                                    new ClsCampoBD("email", "angels@itam.mx", ClsCampoBD.TIPO_VARCHAR, ""));
                             colCampos.put("username",
                                     new ClsCampoBD("username", "aangles", ClsCampoBD.TIPO_VARCHAR, ""));
                             colCampos.put("alias",
                                     new ClsCampoBD("alias", "angle", ClsCampoBD.TIPO_VARCHAR, ""));
                             colCampos.put("password", new ClsCampoBD("password", "angel" + i, ClsCampoBD.TIPO_VARCHAR, ""));
-                            c.insertaReg("UserEj", colCampos);
+                            c.insertaReg("User", colCampos);
                             //System.out.println(c.impRS(r));
                             break;
                         case 6:
