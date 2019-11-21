@@ -19,6 +19,8 @@ and open the template in the editor.
     <link rel="stylesheet" href="common/fontawesome.css" crossorigin="anonymous">
     <link rel="stylesheet" href="common/all.css" crossorigin="anonymous">
 
+
+
     <!-- Main CSS -->
     <link rel="stylesheet" href="common/main.css" crossorigin="anonymous">
 
@@ -30,18 +32,25 @@ and open the template in the editor.
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <!-- JS Fontawesome -->
     <script src="common/all.js"></script>
-    
+
+    <!-- JS Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.3.16/dist/sweetalert2.all.min.js"></script>
+
 </head>
 
 <body>
     <%@ include file="header.jsp" %>
     
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 font-weight-normal">Cubos de Broths & Brothers</h1>
-            <p class="lead font-weight-normal">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi qui nulla eius? Neque reiciendis, et porro totam voluptatibus excepturi quam illum libero nisi quidem assumenda inventore labore tempore, quo officia!</p>
-            <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+    <div class="row position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
+        <div class="col-md-6">
+            <h1 class="display-4 font-weight-normal" style="color: #ec3747;">Sazonadores <br> Broths & Brothers</h1>
+            <p class="lead font-weight-normal">Llevamos hasta tu mesa el sabor de la más alta cocina mexicana de forma rápida y sencilla, permitiendote compartir más momentos con tus seres queridos.</p>
+            <a class="btn btn-outline-secondary" href="catalog.jsp">Conoce nuestros productos</a>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="img/inicio/comida.jpg" alt="" class="img-responsive">
         </div>
     </div>
 
@@ -52,6 +61,7 @@ and open the template in the editor.
                     <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste sint </p>
                 </div>
                 <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                    <img src="img/inicio/somos.jpg" alt="" class="img-responsive" style="width: 90%;margin-top: 15px;height: 90%;">
                 </div>
             </div>
             <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
@@ -60,6 +70,7 @@ and open the template in the editor.
                     <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis cumque dese</p>
                 </div>
                 <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                    <img src="img/inicio/producto.jpg" alt="" class="img-responsive" style="width: 90%;margin-top: 15px;height: 100%;">
                 </div>
             </div>
         </div>
