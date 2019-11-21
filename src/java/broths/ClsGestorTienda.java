@@ -17,12 +17,20 @@ public class ClsGestorTienda {
     ClsConexion conexion;
 // ---------------------------------------------------------------------------    
 
+<<<<<<< HEAD
+     public ClsGestorTienda() {
+=======
     public ClsGestorTienda() {
+>>>>>>> dev
         conexion = new ClsConexion("Store");
     }
 // ---------------------------------------------------------------------------        
 
+<<<<<<< HEAD
+  /*  public boolean conectaBD(String strUsuario, String strContrasenha) {
+=======
     /*public boolean conectaBD(String strUsuario, String strContrasenha) {
+>>>>>>> dev
         return conexion.conectate(strUsuario, strContrasenha);
     }*/
 // ---------------------------------------------------------------------------        
@@ -184,6 +192,17 @@ public class ClsGestorTienda {
         return conexion.obtenRegSelect("select type, description from Payment inner join PaymentMethod on Payment.idPayment=PaymentMethod.Id where idUser=" + id);
     }
 
+<<<<<<< HEAD
+     public java.sql.ResultSet obtenRecetas(String categoria) {
+        return conexion.obtenRegSelect("Select * from Recipes where tipo='" + categoria + "'");
+    }
+     
+     
+    public boolean conectaBD() {
+        return conexion.conectate("demo", "demo") >= 0;
+    }
+
+=======
     public ResultSet obtenCatalogo() {
         return conexion.obtenRS("Catalog");
     }
@@ -212,4 +231,5 @@ public class ClsGestorTienda {
         return conexion.conectate("demo", "demo") >= 0;
     }
     
+>>>>>>> dev
 }
