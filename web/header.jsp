@@ -1,3 +1,4 @@
+<%@page import="broths.ShoppingCart"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -7,6 +8,14 @@ and open the template in the editor.
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <nav class="site-header sticky-top py-1 bg-light">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <%
+            ShoppingCart cart = ((broths.ShoppingCart) session.getAttribute("carrito"));
+            int total = 0;
+            if (cart != null) {
+                total = cart.getCount();
+            }
+        %>
+
         <a class="py-2 d-none d-md-inline-block" href="/BrothsBrothers">Broths & Brothers</a>
         <a class="py-2 d-none d-md-inline-block" href="catalog.jsp">Catálogo</a>
         <a class="py-2 d-none d-md-inline-block" href="recipes.jsp">Recetas</a>
@@ -21,10 +30,5 @@ and open the template in the editor.
         <a class="py-2 d-none d-md-inline-block" href="perfil.jsp">Mi perfil</a>
         <a class="py-2 d-none d-md-inline-block" href="logout.jsp">Cerrar sesión</a>
         <%}%>
-        <form class="form-inline my-2 my-lg-0" action="search.jsp">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos"
-                   aria-label="Buscar productos" name="words">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
     </div>
 </nav>
