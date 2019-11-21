@@ -31,11 +31,12 @@ public class ClsConexion {
         this.strNomDB = strNomDB + ".accdb";
     }
 
-    public boolean conectate(String unUID, String unPwd) {
+
+    public int conectate(String unUID, String unPwd) {
         strUID = unUID;
-        String strSel = "Select password from User where email = '"
+        String strSel = "Select password, id from User where email = '"
                 + unUID + "'";
-        boolean res = false;
+        int res = -1;
 
         try {
             //Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
@@ -59,9 +60,9 @@ public class ClsConexion {
             // Si todo va bien, verifica el unID y unPwd
             ResultSet rs = this.obtenRegSelect(strSel);
             if (rs.next()) {
-                String strContrasenha = rs.getString(1);
+                String strContrasenha = rs.getString("password");
                 if (strContrasenha.compareTo(unPwd) == 0) {
-                    res = true;
+                    res = rs.getInt("id");
                 } else {
                     con.close();
                     con = null;

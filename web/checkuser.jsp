@@ -1,5 +1,3 @@
-36 lines (32 sloc)  1.23 KB
-  
 <%-- 
     Document   : checkuser
     Created on : 19/11/2019, 02:57:36 PM
@@ -26,11 +24,13 @@
           if (id >= 0) {
               session.setAttribute("miGestor", gestor);
               session.setAttribute("id", id);
-              session.removeAttribute("error");
-              request.getRequestDispatcher("index.jsp").forward(request, response);
+              session.removeAttribute("logErr");
+              response.sendRedirect("/BrothsBrothers");
           } else {
-              session.setAttribute("error", true);
-              request.getRequestDispatcher("login.jsp").forward(request, response);
+              session.setAttribute("logErr", true);
+              session.removeAttribute("miGestor");
+              session.removeAttribute("id");
+              response.sendRedirect("login.jsp");
           }              
         %>
     </body>

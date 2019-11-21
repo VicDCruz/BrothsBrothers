@@ -23,7 +23,7 @@
     </head>
 </head>
 <body>
-    <%@ include file="header.html" %>
+    <%@ include file="header.jsp" %>
     <form>
         <div class="container">
             <div class="form-row">
@@ -68,7 +68,7 @@
                     <h4 class="alert-heading">No se registro al usuario</h4>
                     <p>
                         <%
-                            for (int col = 0; col < arr_valCampos.length; col++) {
+                            for (int col = 0; col < arr_valCampos.length-1; col++) {
                         %>
                         <br>
                         <%=arr_nomCampos[col]%>: <%= arr_valCampos[col]%>

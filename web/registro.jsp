@@ -21,7 +21,7 @@ and open the template in the editor.
     </head>
 
     <body>
-        <%@ include file="header.html" %>
+        <%@ include file="header.jsp" %>
 
         <form action="checkRegistro.jsp">
             <div class="container">
