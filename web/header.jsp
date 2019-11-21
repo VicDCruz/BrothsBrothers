@@ -21,7 +21,7 @@ and open the template in the editor.
         <a class="py-2 d-none d-md-inline-block" href="recipes.jsp">Recetas</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.jsp">Carrito</a>
         <%
-        if (session.getAttribute("id") == null) {
+        if (session.getAttribute("id") == null && session.getAttribute("miGestor") == null) {
         %>
         <a class="py-2 d-none d-md-inline-block" href="login.jsp">Iniciar sesión</a>
         <%
