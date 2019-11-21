@@ -68,7 +68,7 @@ and open the template in the editor.
             <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
                 <div class="my-3 p-3">
                     <h2 class="display-5">Nuestro producto</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis cumque dese</p>
+                    <p class="lead">Caldos de diferentes sabores reducidos a punto de gel, listos para agregar a tu platillo favorito.</p>
                 </div>
                 <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
                     <img src="img/inicio/producto.jpg" alt="" class="img-responsive" style="width: 90%;margin-top: 15px;height: 100%;">
