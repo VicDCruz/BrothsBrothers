@@ -18,11 +18,7 @@ and open the template in the editor.
 
         <a class="py-2 d-none d-md-inline-block" href="/BrothsBrothers">Broths & Brothers</a>
         <a class="py-2 d-none d-md-inline-block" href="catalog.jsp">Catálogo</a>
-<<<<<<< HEAD
-        <a class="py-2 d-none d-md-inline-block" href="recipes.jsp">Recetas</a>
-=======
         <a class="py-2 d-none d-md-inline-block" href="recipe_types.jsp">Recetas</a>
->>>>>>> dev
         <a class="py-2 d-none d-md-inline-block" href="cart.jsp">Carrito</a>
         <%
         if (session.getAttribute("id") == null && session.getAttribute("miGestor") == null) {
@@ -35,8 +31,5 @@ and open the template in the editor.
         <a class="py-2 d-none d-md-inline-block" href="logout.jsp">Cerrar sesión</a>
         <%}%>
     </div>
-<<<<<<< HEAD
 </nav>
-=======
-</nav>
->>>>>>> dev
+

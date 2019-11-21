@@ -27,7 +27,7 @@ and open the template in the editor.
     </head>
 
     <body>
-        <%@ include file="header.html" %>
+        <%@ include file="header.jsp" %>
 
         <div class="album py-5 bg-light">
             <div class="container">

@@ -22,7 +22,7 @@ and open the template in the editor.
     </head>
 
     <body>
-        <%@ include file="header.html" %>
+        <%@ include file="header.jsp" %>
         <%@page import="broths.ClsGestorTienda"%>
 
         <div class="album py-5 bg-light">
