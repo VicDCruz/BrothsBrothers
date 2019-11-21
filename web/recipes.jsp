@@ -46,9 +46,16 @@ and open the template in the editor.
         <%@page import="broths.ClsGestorTienda"%>
 
         <div class="album py-5 bg-light">
-            <div class="container">                
+            <div class="container">        
+                <div class="row" style="border-bottom: 1px solid #9a9a9a;margin-bottom: 20px;">
+                    <div class="col-md-12">
+                        <h1>Nuestras recetas</h1>
+                    </div>
+                </div>        
                 <div class="row">
-                    <%                        ClsGestorTienda gestor = new ClsGestorTienda();
+
+                    <%                        
+                        ClsGestorTienda gestor = new ClsGestorTienda();
                         gestor.conectaBD();
                         java.sql.ResultSet r;
 
@@ -65,7 +72,7 @@ and open the template in the editor.
                         for (int i = 0; i < rows; i++) {
                     %>
                     <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
+                        <div class="card mb-4 box-shadow" style="height: 450px;">
                             <div class="card-body">
                                 <img class="card-img-top" style="width: 100%; height: 225px; display: block;"
                                      alt="Thumbnail [100%x225]"
@@ -82,74 +89,89 @@ and open the template in the editor.
                     <h1>Lo sentimos, sin resultados &#127869;</h1>
                     <% }%>
                 </div>
-            </div>
-        </div>
 
-        <div class="row bootstrap snippets">
-            <div class="col-md-5 col-md-offset-2 col-sm-10">
-                <div class="comment-wrapper">
-                    <div class="panel panel-info">
-                        <br><div class="panel-heading">
-                            Deja tu comentario
+
+                <div class="row bootstrap snippets" style="margin-top: 50px;">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="comment-wrapper">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h2>Comentarios de nuestros usuarios</h2>
+                                </div>
+                                <div class="panel-body" style="border-top: 1px solid #9a9a9a;margin-top: 10px;padding-top: 10px;">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="comentarios">Escribe tu comentario</label>
+                                                <textarea class="form-control" id="comentarios" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-right">
+                                            <button type="button" class="btn btn-primary">Agregar comentario</button>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="clearfix"></div>
+
+                                    <hr>
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <a href="#" class="pull-left" style="margin-right: 15px;">
+                                                <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+                                            </a>
+                                            <div class="media-body">
+                                                <span class="text-muted pull-right">
+                                                    <small class="text-muted">Hace 30 min</small>
+                                                </span>
+                                                <strong class="text-success">@MartinoMont</strong>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                    Lorem ipsum dolor sit amet, <a href="#">#consecteturadipiscing </a>.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <br><br><li class="media">
+                                            <a href="#" class="pull-left" style="margin-right: 15px;">
+                                                <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle">
+                                            </a>
+                                            <div class="media-body">
+                                                <span class="text-muted pull-right">
+                                                    <small class="text-muted">Hace 1 hora </small>
+                                                </span>
+                                                <strong class="text-success">@LaurenceCorreil</strong>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                    Lorem ipsum dolor <a href="#">#ipsumdolor </a>adipiscing elit.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <br><br><li class="media">
+                                            <a href="#" class="pull-left" style="margin-right: 15px;">
+                                                <img src="https://bootdey.com/img/Content/user_3.jpg" alt="" class="img-circle">
+                                            </a>
+                                            <div class="media-body">
+                                                <span class="text-muted pull-right">
+                                                    <small class="text-muted">Hace 2 horas</small>
+                                                </span>
+                                                <strong class="text-success">@JohnNida</strong>
+                                                <p>
+                                                    Lorem ipsum dolor <a href="#">#sitamet</a> sit amet, consectetur adipiscing elit.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="panel-body">
-                            <textarea class="form-control" placeholder="Escribe tu comentario..." rows="3"></textarea>
-                            <br>
-                            <button type="button" class="btn btn-info pull-right">Publicar</button>
-                            <div class="clearfix"></div>
-                            <hr>
-                            <ul class="media-list">
-                                <li class="media">
-                                    <a href="#" class="pull-left">
-                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
-                                    </a>
-                                    <div class="media-body">
-                                        <span class="text-muted pull-right">
-                                            <small class="text-muted">Hace 30 min</small>
-                                        </span>
-                                        <strong class="text-success">@MartinoMont</strong>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Lorem ipsum dolor sit amet, <a href="#">#consecteturadipiscing </a>.
-                                        </p>
-                                    </div>
-                                </li>
-                                <br><br><li class="media">
-                                    <a href="#" class="pull-left">
-                                        <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle">
-                                    </a>
-                                    <div class="media-body">
-                                        <span class="text-muted pull-right">
-                                            <small class="text-muted">Hace 1 hora </small>
-                                        </span>
-                                        <strong class="text-success">@LaurenceCorreil</strong>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Lorem ipsum dolor <a href="#">#ipsumdolor </a>adipiscing elit.
-                                        </p>
-                                    </div>
-                                </li>
-                                <br><br><li class="media">
-                                    <a href="#" class="pull-left">
-                                        <img src="https://bootdey.com/img/Content/user_3.jpg" alt="" class="img-circle">
-                                    </a>
-                                    <div class="media-body">
-                                        <span class="text-muted pull-right">
-                                            <small class="text-muted">Hace 2 horas</small>
-                                        </span>
-                                        <strong class="text-success">@JohnNida</strong>
-                                        <p>
-                                            Lorem ipsum dolor <a href="#">#sitamet</a> sit amet, consectetur adipiscing elit.
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
-
             </div>
+
         </div>
+
+        
 
         <%@ include file="footer.html" %>
     </body>
