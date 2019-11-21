@@ -1,7 +1,6 @@
 package broths;
 
 import java.sql.SQLException;
-import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,9 +21,9 @@ public class ClsGestorTienda {
     }
 // ---------------------------------------------------------------------------        
 
-    /*public boolean conectaBD(String strUsuario, String strContrasenha) {
+    public boolean conectaBD(String strUsuario, String strContrasenha) {
         return conexion.conectate(strUsuario, strContrasenha);
-    }*/
+    }
 // ---------------------------------------------------------------------------        
 
     public boolean conectado() {
@@ -167,28 +166,12 @@ public class ClsGestorTienda {
 // ---------------------------------------------------------------------------    
 // ---------------------------------------------------------------------------    
 // ---------------------------------------------------------------------------    
-    
-    public int loginUsuario(String email, String pass) {
-        return conexion.conectate(email, pass);
-    }
-    
-    public ResultSet obtenDatosUsuario(int id) {
-        return conexion.obtenRegSelect("select * from User where id=" + id);
-    }
-    
-    public ResultSet obtenDireccionesUsuario(int id) {
-        return conexion.obtenRegSelect("select * from ShippingAddress where userId=" + id);
-    }
-    
-    public ResultSet obtenMetodosPagoUsuario(int id) throws SQLException {
-        return conexion.obtenRegSelect("select type, description from Payment inner join PaymentMethod on Payment.idPayment=PaymentMethod.Id where idUser=" + id);
-    }
 
-    public ResultSet obtenCatalogo() {
+    public java.sql.ResultSet obtenCatalogo() {
         return conexion.obtenRS("Catalog");
     }
     
-    public ResultSet obtenCatalogo(String filters) {
+    public java.sql.ResultSet obtenCatalogo(String filters) {
         String concat = "";
         for (String filter : filters.split(" ")) {
             concat += "UCase(description) like '*" + filter.toUpperCase() + "*' or UCase(product) like '*" + filter.toUpperCase() + "*' or ";
@@ -198,7 +181,7 @@ public class ClsGestorTienda {
     }
     
     public MiModelo obtenProducto(String id) {
-        ResultSet rs = conexion.obtenRegSelect("Select * from Catalog where id=" + id);
+        java.sql.ResultSet rs = conexion.obtenRegSelect("Select * from Catalog where id=" + id);
         MiModelo elModelo = new MiModelo(rs);
         try {
             rs.close();
@@ -209,7 +192,7 @@ public class ClsGestorTienda {
     }
     
     public boolean conectaBD() {
-        return conexion.conectate("demo", "demo") >= 0;
+        return conexion.conectate("demo", "demo");
     }
     
 }

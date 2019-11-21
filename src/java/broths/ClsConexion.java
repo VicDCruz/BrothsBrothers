@@ -31,11 +31,11 @@ public class ClsConexion {
         this.strNomDB = strNomDB + ".accdb";
     }
 
-    public int conectate(String unUID, String unPwd) {
+    public boolean conectate(String unUID, String unPwd) {
         strUID = unUID;
-        String strSel = "Select password, id from User where email = '"
+        String strSel = "Select password from User where email = '"
                 + unUID + "'";
-        int res = -1;
+        boolean res = false;
 
         try {
             //Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
@@ -53,15 +53,15 @@ public class ClsConexion {
             // Parametrizar la ruta por medio de propiedades obtenidas desde un archivo o en la
             // línea de comandos de ejecución del jar
             //
-            con = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/User/Documents/ITAM/9noSemestre/SCE/BrothsBrothers/" + this.strNomDB);
+            con = DriverManager.getConnection("jdbc:ucanaccess://./" + this.strNomDB);
             //con = DriverManager.getConnection("jdbc:ucanaccess://"+ this.strNomDB); 
 
             // Si todo va bien, verifica el unID y unPwd
             ResultSet rs = this.obtenRegSelect(strSel);
             if (rs.next()) {
-                String strContrasenha = rs.getString("password");
+                String strContrasenha = rs.getString(1);
                 if (strContrasenha.compareTo(unPwd) == 0) {
-                    res = rs.getInt("id");
+                    res = true;
                 } else {
                     con.close();
                     con = null;

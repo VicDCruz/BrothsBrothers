@@ -19,16 +19,7 @@ and open the template in the editor.
         <a class="py-2 d-none d-md-inline-block" href="/BrothsBrothers">Broths & Brothers</a>
         <a class="py-2 d-none d-md-inline-block" href="catalog.jsp">Catálogo</a>
         <a class="py-2 d-none d-md-inline-block" href="recipes.jsp">Recetas</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.jsp">Carrito</a>
-        <%
-        if (session.getAttribute("id") == null) {
-        %>
-        <a class="py-2 d-none d-md-inline-block" href="login.jsp">Iniciar sesión</a>
-        <%
-        } else {
-        %>
-        <a class="py-2 d-none d-md-inline-block" href="perfil.jsp">Mi perfil</a>
-        <a class="py-2 d-none d-md-inline-block" href="logout.jsp">Cerrar sesión</a>
-        <%}%>
+        <a class="py-2 d-none d-md-inline-block" href="cart.jsp">Carrito (<%=total%> artículo<%=total != 1 ? "s" : ""%>)</a>
+        <a class="py-2 d-none d-md-inline-block" href="login.html">Iniciar sesión</a>
     </div>
 </nav>
