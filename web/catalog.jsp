@@ -85,7 +85,7 @@ and open the template in the editor.
                         for (int i = 0; i < rows; i++) {
                             int stock = Integer.parseInt((String) mm.getValueAt(i, 4));
                             int id = Integer.parseInt((String) mm.getValueAt(i, 0));
-                            float price = Float.parseFloat((String) mm.getValueAt(i, 2));
+                            float price = Float.parseFloat((String) mm.getValueAt(i, 3));
                             String name = (String)mm.getValueAt(i, 3);
                     %>
                     <div class="col-md-4">
@@ -93,7 +93,7 @@ and open the template in the editor.
                             <a href="product.jsp?id=<%=mm.getValueAt(i, 0)%>">
                                 <img class="card-img-top" style="width: 100%; height: 225px; display: block;"
                                      alt="Thumbnail [100%x225]"
-                                     src="/BrothsBrothers/img/catalog/<%=mm.getValueAt(i, 3)%>.jpg"
+                                     src="/BrothsBrothers/img/catalog/<%=mm.getValueAt(i, 1)%>.jpg"
                                      data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                                      data-holder-rendered="true">
                             </a>
@@ -103,8 +103,8 @@ and open the template in the editor.
                             </div>
                             <%}%>
                             <div class="card-body">
-                                <h1><%= mm.getValueAt(i, 3)%></h1>
-                                <p class="card-text"><%= mm.getValueAt(i, 1)%></p>
+                                <h1><%= mm.getValueAt(i, 1)%></h1>
+                                <p class="card-text"><%= mm.getValueAt(i, 2)%></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <form action="product.jsp">

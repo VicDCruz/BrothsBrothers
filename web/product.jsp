@@ -64,19 +64,19 @@ and open the template in the editor.
                         if (rows == 1) {
                             int stock = Integer.parseInt((String) mm.getValueAt(0, 4));
                             int id = Integer.parseInt((String) mm.getValueAt(0, 0));
-                            float price = Float.parseFloat((String) mm.getValueAt(0, 2));
+                            float price = Float.parseFloat((String) mm.getValueAt(0, 3));
                     %>
                     <div class="col-md-4">
                         <img class="card-img-top" style="width: 100%; height: 225px; display: block;"
                              alt="Thumbnail [100%x225]"
-                             src="/BrothsBrothers/img/catalog/<%=mm.getValueAt(0, 3)%>.jpg"
+                             src="/BrothsBrothers/img/catalog/<%=mm.getValueAt(0, 1)%>.jpg"
                              data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                              data-holder-rendered="true">
                     </div>
                     <div class="col-md-6 offset-md-1">
-                        <h3><%=mm.getValueAt(0, 3)%></h3>
-                        <p><%=mm.getValueAt(0, 1)%></p>
-                        <h1>$ <%=mm.getValueAt(0, 2)%></h1>
+                        <h3><%=mm.getValueAt(0, 1)%></h3>
+                        <p><%=mm.getValueAt(0, 2)%></p>
+                        <h1>$ <%=price%></h1>
                         <h5>Stock disponible: <%=stock%></h5>
                         <br>
                         <form action="add_to_cart.jsp" method="post">
