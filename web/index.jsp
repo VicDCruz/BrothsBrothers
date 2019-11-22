@@ -50,9 +50,9 @@ and open the template in the editor.
             <p class="lead font-weight-normal">Caldos de diferentes sabores reducidos a punto de gel, listos para agregar a tu platillo favorito. <br> ¡Prueba <b>Broths & Brothers</b>, la manera más fácil de cocinar!</p>
             <a class="btn btn-dark" href="#">Coming soon</a>
         </div>
-        <div class="col-md-6 text-center">
+        <!--<div class="col-md-6 text-center">
             <img src="img/inicio/comida.jpg" alt="" class="img-responsive">
-        </div>
+        </div> -->
     </div>
 
         <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
